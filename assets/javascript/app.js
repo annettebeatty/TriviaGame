@@ -2,7 +2,7 @@ $(document).ready(function() {
     var firstTime= true;
     var questionNumber = 0;
     var timeToAnswer = 15;
-    var nextQuestionSec = 3;
+    var nextQuestionSec = 120;
     var timer = timeToAnswer;
     var interval;
     var intervalRunning = false;
@@ -13,15 +13,45 @@ $(document).ready(function() {
     var questionData =
     [
         {
-        question: "What is the capital of United Kingdom?",
-        choices: ["Manchester", "Birmingham", "London", "Birmingham"],
-        answer: 2
+        question: "Which football team moved from San Diego to Los Angeles?",
+        choices: ["Bears", "Chargers", "Falcons", "49ers"],
+        answer: 1,
+        image: "assets/images/chargers.png"
+        },
+
+        {
+        question: "Which of these beaches is closest to the golf course which hosted the 2008 US Open?",
+        choices: ["Torrey Pines State Beach", "La Jolla Shores", "Ocean Beach", "Pacific Beach"],
+        answer: 0,
+        image: "assets/images/torreypines.jpg"
         },
         
         {
-        question: "What is the capital of United States?",
-        choices: ["California", "New York", "Miami", "Florida"],
-        answer: 1
+        question: "Which iconic structure connects the North Island Naval Base to downtown San Diego?",
+        choices: ["California Bridge", "San Diego Bridge", "Coronado Roadway", "Coronado Bridge"],
+        answer: 3,
+        image: "assets/images/coronado.jpg"
+        },
+
+        {
+        question: "Which of these places was the site of the famous movie 'Some Like It Hot' starring Marilyn Monroe?",
+        choices: ["San Diego Zoo", "Balboa Park", "Hotel Del Coronado", "Sea World"],
+        answer: 2,
+        image: "assets/images/hoteldel.jpg"
+        },
+
+        {
+        question: "Which of these San Diego parks hosts both a professional sports team and large scale concerts?",
+        choices: ["Chicano Park", "Petco Park", "Balboa Park", "La Jolla Shores Park"],
+        answer: 1,
+        image: "assets/images/petcopark.jpg"
+        },
+
+        {
+        question: "Which late night show was San Diego Zoo's emissary, Joan Embery, was known to frequent?",
+        choices: ["The Tonight Show", "The Late Show With David Letterman", "Late Night with Conan O'Brien", "Jimmy Kimmel Live"],
+        answer: 0,
+        image: "assets/images/joanembery.jpg"
         }
     ]   
 
@@ -140,6 +170,8 @@ $(document).ready(function() {
         // Give the correct answer
         let answer = questionData[questionNumber].answer
         $("#buttons-view").html("<br>" + "<h3>The correct answer is: " + questionData[questionNumber].choices[answer] + "</h3>");
+        console.log("Image", questionData[questionNumber].image);
+        $("#buttons-view").append("<img src='" + questionData[questionNumber].image + "'/>");
 
     }
 
