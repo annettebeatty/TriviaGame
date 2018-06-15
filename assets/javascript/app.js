@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var firstTime= true;
     var questionNumber = 0;
-    var timeToAnswer = 15;
-    var nextQuestionSec = 120;
+    var timeToAnswer = 20;
+    var nextQuestionSec = 8;
     var timer = timeToAnswer;
     var interval;
     var intervalRunning = false;
@@ -102,8 +102,10 @@ $(document).ready(function() {
         // Render our happy questions
         console.log("Number of choices", questionData[questionNumber].choices.length);
 
-        // Kill out any leftover messages
+        // Kill out any leftover messages/pictures
         $("#buttons-view").empty();
+        $("#buttons-view").addClass("ans-container");  // Need to put the formatting class back in
+        $("#pic").empty();
 
         for (var i=0; i < questionData[questionNumber].choices.length; i++)
         {
@@ -158,11 +160,13 @@ $(document).ready(function() {
         // Display the answer
         displayAnswer();
 
-        // Reset the timer
+        // Stop and reset the timers
         timer = timeToAnswer;
+        clearInterval(interval);
+        intervalRunning = false;
 
-        // Go to the next question
-        nextQuestion();
+        // Give them time to read the message
+        setTimeout(nextQuestion, nextQuestionSec*1000);
     }
 
     function displayAnswer()
@@ -171,8 +175,7 @@ $(document).ready(function() {
         let answer = questionData[questionNumber].answer
         $("#buttons-view").html("<br>" + "<h3>The correct answer is: " + questionData[questionNumber].choices[answer] + "</h3>");
         console.log("Image", questionData[questionNumber].image);
-        $("#buttons-view").append("<img src='" + questionData[questionNumber].image + "'/>");
-
+        $("#pic").append("<img src='" + questionData[questionNumber].image + "'/>");
     }
 
     $(document).on("click", ".button",function()
@@ -237,16 +240,22 @@ $(document).ready(function() {
 
     function gameOver()
     {
-        $("#question").html("Game Over -- Here are the Game Stats");
+        // Clear out last picture
+        $("#pic").empty();
+
+        // Display game statistics
+        $("#question").html("Game Over!!");
         $("#buttons-view").html("<div> Correct answers: " + correct + "</div>");
         $("#buttons-view").append("<div> Incorrect answers: " + incorrect + "</div>");
         $("#buttons-view").append("<div> Unanswered: " + unanswered + "</div><br><br>");
 
+        // Render new start button
         var x = $("<button>");
         x.addClass("start-button")
         x.text("Start Over??");
         $("#restart").append(x);
 
+        // Reset game stats
         firstTime = true;
         questionNumber = 0;
         intervalRunning = false;

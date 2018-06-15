@@ -18,31 +18,21 @@
     width: 800px;
 }
 
+.pop {
+    font-size: 40px;
+    color: #3566dc;
+    padding: 10px;
+}
+
 body {
     background-image: url(../images/sandiegobg.jpg);
     background-size: cover;
-
     color:brown;
     text-shadow: 2px 2px 5px black;
-    margin: 20px;
 }
 
 h1, h2 {
     text-align: center;
-}
-
-p {
-    font-size: 15px;
-    color: black;
-    margin-bottom: 0px;
-}
-
-.seeit {
-    visibility: visible;
-}
-
-.hideit {
-    visibility: hidden;
 }
 
 .button {
@@ -72,16 +62,19 @@ p {
     font-size: 32px;
 }
 
-.ans-container{
+.ans-container {
     justify-content: center;
     align-items: center; 
     display: flex;
-    font-size: 24px;
+    margin: auto;
+    flex-direction: column;
+    font-size: 32px;
 }
 
 img {
     height: 200px;
     width: 300px;
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 

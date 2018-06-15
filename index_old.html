@@ -20,27 +20,33 @@
 
 <body>
     <div class="container">
-        <div class="ques-container">
-            <br>
-            <h1>San Diego Trivia Game</h1>  
-            <br>
+        <div class="row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-8 ques-container">
+                <br>
+                <h1>San Diego Trivia Game</h1>  
+                <br>
+                <div>
+                    <!-- Time remaining will render here -->
+                    <h2 id=time></h2>
+                    <br>
+                    <!-- Will render buttons for start and trivia -->
+                    <h2 id=question class=pop> </h2>
+                    <br>
+                </div>
+                <div class=ans-container>
+                    <div id=buttons-view>
+                    </div>
+                    <div id=pic></div>
+                </div>
+                <div class=ans-container>
+                    <div id=restart>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
             <div>
-                <!-- Time remaining will render here -->
-                <h2 id=time></h2>
-                <br>
-                <!-- Will render buttons for start and trivia -->
-                <h2 id=question class=pop> </h2>
-                <br>
-            </div>
-            <div class=ans-container>
-                <div id=buttons-view>
-                </div>
-                <div id=pic></div>
-            </div>
-            <div class=ans-container>
-                <div id=restart>
-                </div>
-            </div>
         </div>
      </div>
 
