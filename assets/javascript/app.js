@@ -25,7 +25,14 @@ $(document).ready(function() {
         answer: 0,
         image: "assets/images/torreypines.jpg"
         },
-        
+
+        {
+            question: "San Diego was named for the Catholic Saint Didacus.",
+            choices: ["True", "False"],
+            answer: 0,
+            image: "assets/images/prayerstd.jpg"
+        },
+
         {
         question: "Which iconic structure connects the North Island Naval Base to downtown San Diego?",
         choices: ["California Bridge", "San Diego Bridge", "Coronado Roadway", "Coronado Bridge"],
@@ -63,7 +70,7 @@ $(document).ready(function() {
         intervalRunning = true;
 
         // Render the timer 
-        $("#time").html("<h1>Time Remaining: " + timer-- + "</h1>");
+        $("#time").html("<h2>Time Remaining: " + timer-- + "</h2>");
 
         // Render a question
         console.log("Question", questionData[questionNumber].question);
