@@ -2,7 +2,7 @@ $(document).ready(function() {
     var firstTime= true;
     var questionNumber = 0;
     var timeToAnswer = 20;
-    var nextQuestionSec = 7;
+    var nextQuestionSec = 8;
     var timer = timeToAnswer;
     var interval;
     var intervalRunning = false;
