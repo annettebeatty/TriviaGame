@@ -14,7 +14,7 @@
     align-items: center; 
     margin: 50px 70px;  
     background-color: tan;
-    height: 675px;
+    height: 700px;
     width: 800px;
     display: flex;
     flex-direction: column;
@@ -44,6 +44,13 @@ body {
 
 h1, h2 {
     text-align: center;
+}
+
+p {
+    font-size: 18px;
+    text-shadow: 0px 0px 0px;
+    color: black;
+    margin: 10px;
 }
 
 .button {

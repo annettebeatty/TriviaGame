@@ -2,7 +2,7 @@ $(document).ready(function() {
     var firstTime= true;
     var questionNumber = 0;
     var timeToAnswer = 20;
-    var nextQuestionSec = 8;
+    var nextQuestionSec = 10;
     var timer = timeToAnswer;
     var interval;
     var intervalRunning = false;
@@ -16,49 +16,56 @@ $(document).ready(function() {
         question: "Which football team moved from San Diego to Los Angeles?",
         choices: ["Bears", "Chargers", "Falcons", "49ers"],
         answer: 1,
-        image: "assets/images/chargers.png"
+        image: "assets/images/chargers.png",
+        trivia: "Chargers owner Dean Spanos moved his team back to L.A. because it couldn’t compete with the rest of the league financially at the old stadium in San Diego."
         },
 
         {
         question: "Which of these beaches is closest to the golf course which hosted the 2008 US Open?",
         choices: ["Torrey Pines State Beach", "La Jolla Shores", "Ocean Beach", "Pacific Beach"],
         answer: 0,
-        image: "assets/images/torreypines.jpg"
+        image: "assets/images/torreypines.jpg",
+        trivia: "Torrey Pines has one of the most scenic views with the beach backing up into the giant bluffs.  But be aware - You may see more than you bargained for at the nude Black's Beach."
         },
 
         {
         question: "San Diego was named for the Catholic Saint Didacus.",
         choices: ["True", "False"],
         answer: 0,
-        image: "assets/images/prayerstd.jpg"
+        image: "assets/images/prayerstd.jpg",
+        trivia: "Sebastián Vizcaíno surveyed the harbor (currently Mission Bay and Point Loma) and named the area for the Catholic Saint Didacus, a Spaniard more commonly known as San Diego de Alcalá."
         },
 
         {
         question: "Which iconic structure connects the North Island Naval Base to downtown San Diego?",
         choices: ["California Bridge", "San Diego Bridge", "Coronado Roadway", "Coronado Bridge"],
         answer: 3,
-        image: "assets/images/coronado.jpg"
+        image: "assets/images/coronado.jpg",
+        trivia: "The 11,179-foot-long (3,407 m or 2.1 mi) bridge ascends from Coronado at a 4.67 percent grade before curving 80 degrees toward San Diego. It is supported by 27 concrete girders, the longest ever made at the time of construction."
         },
 
         {
         question: "Which of these places was the site of the famous movie 'Some Like It Hot' starring Marilyn Monroe?",
         choices: ["San Diego Zoo", "Balboa Park", "Hotel Del Coronado", "Sea World"],
         answer: 2,
-        image: "assets/images/hoteldel.jpg"
+        image: "assets/images/hoteldel.jpg",
+        trivia: "When it opened in 1888, it was the largest resort hotel in the world. It has hosted presidents, royalty, and celebrities through the years and has been featured in numerous movies and books."
         },
 
         {
         question: "Which of these San Diego parks hosts both a professional sports team and large scale concerts?",
         choices: ["Chicano Park", "Petco Park", "Balboa Park"],
         answer: 1,
-        image: "assets/images/petcopark.jpg"
+        image: "assets/images/petcopark.jpg",
+        trivia: "Petco Park is a baseball park located in the downtown area of San Diego, California that is home to the San Diego Padres. The park opened in 2004, replacing Qualcomm Stadium, which the Padres shared with the San Diego Chargers of the NFL."
         },
 
         {
         question: "Which late night show was San Diego Zoo's emissary, Joan Embery, was known to frequent?",
         choices: ["The Tonight Show", "The Late Show With David Letterman", "Late Night with Conan O'Brien", "Jimmy Kimmel Live"],
         answer: 0,
-        image: "assets/images/joanembery.jpg"
+        image: "assets/images/joanembery.jpg",
+        trivia: "Joan Embery has been the goodwill ambassador to the San Diego Zoo's Zoological Society of San Diego for over 32 years.  She had close to 100 appearances on the Tonight Show."
         }
     ]   
 
@@ -113,6 +120,7 @@ $(document).ready(function() {
         $("#buttons-view").empty();
         $("#buttons-view").addClass("ans-container");  // Need to put the formatting class back in
         $("#pic").empty();
+        $("#trivia").empty();
 
         for (var i=0; i < questionData[questionNumber].choices.length; i++)
         {
@@ -183,6 +191,7 @@ $(document).ready(function() {
         $("#buttons-view").html("<br>" + "<h3>The correct answer is: " + questionData[questionNumber].choices[answer] + "</h3>");
         console.log("Image", questionData[questionNumber].image);
         $("#pic").append("<img src='" + questionData[questionNumber].image + "'/>");
+        $("#trivia").text(questionData[questionNumber].trivia)
     }
 
     $(document).on("click", ".button",function()
@@ -249,6 +258,7 @@ $(document).ready(function() {
     {
         // Clear out last picture
         $("#pic").empty();
+        $("#trivia").empty();
 
         // Display game statistics
         $("#question").html("Game Over!!");
