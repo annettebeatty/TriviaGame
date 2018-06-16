@@ -2,7 +2,7 @@ $(document).ready(function() {
     var firstTime= true;
     var questionNumber = 0;
     var timeToAnswer = 20;
-    var nextQuestionSec = 8;
+    var nextQuestionSec = 5;
     var timer = timeToAnswer;
     var interval;
     var intervalRunning = false;
@@ -27,10 +27,10 @@ $(document).ready(function() {
         },
 
         {
-            question: "San Diego was named for the Catholic Saint Didacus.",
-            choices: ["True", "False"],
-            answer: 0,
-            image: "assets/images/prayerstd.jpg"
+        question: "San Diego was named for the Catholic Saint Didacus.",
+        choices: ["True", "False"],
+        answer: 0,
+        image: "assets/images/prayerstd.jpg"
         },
 
         {
@@ -49,7 +49,7 @@ $(document).ready(function() {
 
         {
         question: "Which of these San Diego parks hosts both a professional sports team and large scale concerts?",
-        choices: ["Chicano Park", "Petco Park", "Balboa Park", "La Jolla Shores Park"],
+        choices: ["Chicano Park", "Petco Park", "Balboa Park"],
         answer: 1,
         image: "assets/images/petcopark.jpg"
         },
@@ -70,7 +70,7 @@ $(document).ready(function() {
         intervalRunning = true;
 
         // Render the timer 
-        $("#time").html("<h2>Time Remaining: " + timer-- + "</h2>");
+        $("#time").html("<h1>Time Remaining: " + timer-- + "</h1>");
 
         // Render a question
         console.log("Question", questionData[questionNumber].question);
